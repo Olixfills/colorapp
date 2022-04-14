@@ -1,0 +1,58 @@
+.color-box{
+    width: 20%;
+    height: 25%;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-bottom: -5px;
+}
+
+.copy-btn{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -50px;
+    text-align: center;
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    font-size: 1rem;
+    line-height: 30px;
+    color: white;
+    border: none;
+    opacity: 0;
+    text-transform: uppercase;
+}
+
+.color-box:hover .copy-btn{
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.box-content{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.more{
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    height: 30px;
+    color: aliceblue;
+    text-align: center;
+    line-height: 30px;
+}
