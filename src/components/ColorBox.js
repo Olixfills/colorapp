@@ -6,7 +6,7 @@ import '../styles/colorBox.css'
 
 const ColorBox = ({ background }) => {
 const [copied, setCopied] = useState(false)
-const { color, name } = background;
+const { hex, name } = background;
 
 
   const changeCopyState = () => {
@@ -19,12 +19,12 @@ const { color, name } = background;
 
 
   return (
-    <CopyToClipboard text={color} onCopy={changeCopyState}>
-      <div className='color-box' style={{ background: color }}>
-        <div className={`copy-overlay ${copied && 'show'}`} style={{ background: color }} />
+    <CopyToClipboard text={hex} onCopy={changeCopyState}>
+      <div className='color-box' style={{ background: hex }}>
+        <div className={`copy-overlay ${copied && 'show'}`} style={{ background: hex }} />
         <div className={`copy-msg ${copied && 'show'}`}>
           <h1>Copied!</h1>
-          <p>{color}</p>
+          <p>{hex}</p>
         </div>
       <div className="copy-container">
         <div className="box-content">
