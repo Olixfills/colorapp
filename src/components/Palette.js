@@ -1,9 +1,9 @@
 /* eslint-disable no-empty-pattern */
 import React, {useState} from 'react'
 import ColorBox from './ColorBox'
-import '../styles/palette.css'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import '../styles/palette.css'
 
 
 
@@ -16,7 +16,13 @@ const Palette = ({ palette }) => {
   
   return (
     <div className='palette'>
-      <Slider defaultValue={level} min={100} max={900} onAfterChange={changeLevel} step={ 100}/>
+      <div className="slider">
+      <Slider
+        defaultValue={level}
+        min={100} max={900}
+        onAfterChange={changeLevel}
+        step={100} />
+      </div>
         {/* Navbar */}
         <div className="palette-colors" >
         {palette.colors[level].map((color) => {
