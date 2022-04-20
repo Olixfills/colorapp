@@ -1,20 +1,21 @@
 import React from 'react'
 import Slider from 'rc-slider';
 import Dropd from 'react-dropd'
+import Snackbar from './Snackbar'
 // import Select from '@mui/material/Select';
 // import MenuItem from '@mui/material/MenuItem';
 import 'rc-slider/assets/index.css';
 import '../styles/navBar.css';
 
 
-const Navbar = ({ level, changeLevel, handleChange}) => {
-    
+const Navbar = ({ level, changeLevel, handleChange, setOpen, open }) => {
+   
 
 
 return (
     <nav className='navbar'>
         <div className="logo">
-            <a href="#">My Color App</a>
+            <a href="/">My Color App</a>
         </div>
         <div className="slider-container">
             <span>Level: {level}</span>
@@ -38,7 +39,9 @@ return (
                 <MenuItem value='rgba'>RGBA</MenuItem>
             </Select> */}
         </div>
+        <Snackbar open={open} setOpen={setOpen} />
     </nav>
+
   )
 }
 

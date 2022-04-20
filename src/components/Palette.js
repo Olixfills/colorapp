@@ -9,6 +9,7 @@ import '../styles/palette.css'
 const Palette = ({ palette }) => {
   const [level, setLevel] = useState(500)
   const [mode, setMode] = useState('hex')
+  const [open, setOpen] = useState(false) 
 
 
 
@@ -17,13 +18,14 @@ const Palette = ({ palette }) => {
   }
   
   function handleChange(curr) {
-    setMode(curr.toLowerCase())
+    setMode(curr.toLowerCase());
+    setOpen(true)
   }
   
   
   return (
     <div className='palette'>
-      <Navbar level={level} changeLevel={changeLevel} handleChange={handleChange} />
+      <Navbar level={level} changeLevel={changeLevel} handleChange={handleChange} setOpen={setOpen} open={open} />
         {/* Navbar */}
         <div className="palette-colors" >
         {palette.colors[level].map((color) => {
@@ -31,7 +33,11 @@ const Palette = ({ palette }) => {
           return <ColorBox key={name} background={color} mode={color[mode]} />
         })}
         </div>
-        {/* footer */}
+      {/* footer */}
+      <footer className='palette-footer'>
+        {palette.paletteName}
+        <span className='emoji'>{palette.emoji}</span>
+      </footer>
     </div>
   )
 }
