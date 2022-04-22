@@ -1,15 +1,25 @@
-import React, {  } from 'react'
-import Palette from './components/Palette';
-import SeedPalettes from './SeedPalettes';
-import {generatePalette} from './Helpers/ChromaHelper'
+import React from 'react'
+import { Routes, Route } from 'react-router-dom';
+import Palettes from './components/Palettes';
+// import SeedPalettes from './SeedPalettes';
+// import { generatePalette } from './Helpers/ChromaHelper'
 
 
 function App() {
-  console.log(generatePalette(SeedPalettes[4]));
+ 
   return (
-    <div className="App">
-      <Palette palette={generatePalette(SeedPalettes[4]) }/>
-    </div>
+    <Routes>
+      <Route exact path='/' element={<h1>Home</h1>} />
+      <Route path='/palette/:id' element={<Palettes />} />
+      {/* <Route path='/palette/:id' element={<Palette palette={generatePalette(currPal)} />} /> */}
+      <Route path='*' element={<h1>Error Page</h1>} />
+
+    </Routes>
+
+
+    // <div className="App">
+    //   <Palette palette={generatePalette(SeedPalettes[4]) }/>
+    // </div>
   );
 }
 

@@ -8,7 +8,7 @@ import 'rc-slider/assets/index.css';
 import '../styles/navBar.css';
 
 
-const Navbar = ({ level, changeLevel, handleChange, setOpen, open }) => {
+const Navbar = ({ level, changeLevel, handleChange, setOpen, open, mode }) => {
    
 
 
@@ -33,16 +33,14 @@ return (
                 list={["HEX", "RGB", "RGBA"]}
                 onItemChange={handleChange}
             />
-            {/* <Select>
-                <MenuItem value='hex'>HEX</MenuItem>
-                <MenuItem value='rgb'>RGB</MenuItem>
-                <MenuItem value='rgba'>RGBA</MenuItem>
-            </Select> */}
         </div>
-        <Snackbar open={open} setOpen={setOpen} />
+        <Snackbar
+            open={open}
+            setOpen={setOpen}
+            mode={mode} />
     </nav>
 
-  )
+)
 }
 
 export default Navbar
