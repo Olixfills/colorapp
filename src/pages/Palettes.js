@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import Palette from './Palette'
+import Palette from '../components/Palette'
 import { useParams } from 'react-router-dom';
 import { generatePalette } from '../Helpers/ChromaHelper'
 
 
 const Palettes = ({palettes}) => {
-const [currPal, setCurrPal] = useState(palettes[4])
-  const { id } = useParams();
+// const [currPal, setCurrPal] = useState('')
+const { id } = useParams();
 
-  useEffect(() => {
-    const mainPal = palettes.find((palette) => palette.id === id);
-    setCurrPal(mainPal)
-  },[])
+// useEffect(() => {
+  const mainPal = palettes.find((palette) => palette.id === id);
+  // setCurrPal(mainPal)
+  const currPal = mainPal
+// })
 console.log(currPal);
 
   return (

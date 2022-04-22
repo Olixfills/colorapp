@@ -42,7 +42,8 @@ const Palette = ({ palette }) => {
           return <ColorBox
             key={id}
             background={color}
-            mode={color[mode]} />
+            mode={color[mode]}
+            moreUrl={`/palette/${palette.id}/${id}`} />
         })}
         </div>
       {/* footer */}

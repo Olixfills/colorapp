@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { Link } from 'react-router-dom';
 import '../styles/colorBox.css'
 
 
 
-const ColorBox = ({ background, mode}) => {
+const ColorBox = ({ background, mode, moreUrl}) => {
 const [copied, setCopied] = useState(false)
 const { hex,name } = background;
 
@@ -31,8 +32,10 @@ const { hex,name } = background;
           <span>{name}</span>
         </div>
         <button className="copy-btn">Copy</button>
-      </div>
-      <span className='more'>More</span>
+        </div>
+      <Link to={moreUrl} onClick={e => e.stopPropagation()}>
+          <span className='more'>More</span>
+      </Link>
       </div>
     </CopyToClipboard>
   )
