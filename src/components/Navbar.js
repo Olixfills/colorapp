@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Slider from 'rc-slider';
 import Dropd from 'react-dropd'
 import Snackbar from './Snackbar'
@@ -15,7 +16,7 @@ const Navbar = ({ level, changeLevel, handleChange, setOpen, open, mode }) => {
 return (
     <nav className='navbar'>
         <div className="logo">
-            <a href="/">My Color App</a>
+            <Link to="/">My Color App</Link>
         </div>
         <div className="slider-container">
             <span>Level: {level}</span>
