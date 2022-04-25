@@ -4,6 +4,7 @@ import { SingleColorHelper } from '../Helpers/SingleColorHelper';
 import ColorBox from '../components/ColorBox';
 import Navbar from '../components/Navbar';
 import PaletteFooter from '../components/PaletteFooter';
+import useStyles from '../styles/SingleColorPaletteStyles';
 
 
 const SingleColorPalette = () => {
@@ -11,6 +12,9 @@ const SingleColorPalette = () => {
   const [level, setLevel] = useState(500);
   const [mode, setMode] = useState('hex');
   const [open, setOpen] = useState(false);
+
+
+const { back, backBtn, paletteClass, colors } = useStyles();
 
   let palette = SingleColorHelper(paletteId);
   
@@ -44,13 +48,13 @@ const changeLevel = (level) => {
       key={color.hex}
       name={color.name}
       background={color}
-      showLink={false}
+      showFullPalette={false}
       mode={color[mode]}
     />
   ))  
 
   return (
-    <div className="single-color palette">
+    <div className={paletteClass}>
       <Navbar
         level={level}
         changeLevel={changeLevel}
@@ -59,11 +63,11 @@ const changeLevel = (level) => {
         open={open}
         mode={mode}
         showSlider={false}  />
-      <div className="palette-colors">
+      <div className={colors}>
         {colorBoxes}
-        <div className="go-back color-box"><Link to={`/palette/${paletteId}`} className='back-btn'>GO BACK</Link></div>
+        <div className={back}><Link to={`/palette/${paletteId}`} className={backBtn}>GO BACK</Link></div>
       </div>
-      <PaletteFooter palette={palette}/>
+      <PaletteFooter palette={palette} />
     </div>
   )
 }

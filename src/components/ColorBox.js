@@ -1,21 +1,25 @@
 import React, {useState} from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard';
-import chroma from 'chroma-js';
 import { Link } from 'react-router-dom';
-import '../styles/colorBox.css'
+import useStyles from '../styles/ColorBoxStyles'
 
 
 
-const ColorBox = ({ background, mode, moreUrl, showLink}) => {
-const [copied, setCopied] = useState(false)
-const { hex,name } = background;
-const isDarkColor = chroma(hex).luminance() <= 0.1
-const isLightColor = chroma(hex).luminance() >= 0.55
-// console.log(isDarkColor);
+
+const ColorBox = ({ background, mode, moreUrl, showFullPalette }) => {
+  
+  const [copied, setCopied] = useState(false)
+  const { hex,name } = background;
+  
+  const
+    { colorBox, copyText, colorName, seeMore, copyBtn,
+      boxContent, copyOverlay, showOverlay, copyMsg, showMsg }
+      = useStyles({ background, showFullPalette });
+  
   const changeCopyState = () => {
     setCopied(true)
     setTimeout(() => {
-      setCopied(false)
+      setCopied(false)  
     }, 1500);
 }
   
@@ -23,21 +27,21 @@ const isLightColor = chroma(hex).luminance() >= 0.55
 
   return (
     <CopyToClipboard text={mode} onCopy={changeCopyState}>
-      <div className='color-box' style={{ background: hex }}>
-        <div className={`copy-overlay ${copied && 'show'}`} style={{ background: hex }} />
-        <div className={`copy-msg ${copied && 'show'}`}>
-          <h1 >Copied!</h1>
-          <p className={isLightColor && 'dark-text'}>{mode}</p>
+      <div className={colorBox} style={{ background: hex }}>
+        <div className={`${copyOverlay} ${copied && showOverlay}`} style={{ background: hex }} />
+        <div className={`${copyMsg} ${copied && showMsg}`}>
+          <h1>Copied!</h1>
+          <p className={copyText}>{mode}</p>
         </div>
-      <div className="copy-container">
-        <div className="box-content">
-          <span className={isDarkColor && 'light-text'}>{name}</span>
+      <div>
+        <div className={boxContent}>
+          <span className={colorName}>{name}</span>
         </div>
-        <button className={`copy-btn ${isLightColor && 'dark-text'}`}>Copy</button>
+        <button className={copyBtn}>Copy</button> 
         </div>
-        {showLink && 
+        {showFullPalette && 
       <Link to={moreUrl} onClick={e => e.stopPropagation()}>
-          <span className={`more ${isLightColor && 'dark-text'}`}>MORE</span>
+          <span className={seeMore}>MORE</span>
       </Link>}
       </div>
     </CopyToClipboard>

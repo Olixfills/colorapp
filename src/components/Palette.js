@@ -2,8 +2,9 @@
 import React, { useState } from 'react'
 import ColorBox from './ColorBox'
 import Navbar from './Navbar'
-import '../styles/palette.css'
 import PaletteFooter from './PaletteFooter'
+import useStyles from '../styles/PaletteStyles'
+
 
 
 
@@ -13,8 +14,7 @@ const Palette = ({ palette }) => {
   const [mode, setMode] = useState('hex')
   const [open, setOpen] = useState(false) 
 
-// console.log(palette);
-
+const {paletteClass, colors} = useStyles()
 
 
   const changeLevel = (level) => {
@@ -28,7 +28,7 @@ const Palette = ({ palette }) => {
   
   return (
     
-    <div className='palette'>
+    <div className={paletteClass}>
       <Navbar
         level={level}
         changeLevel={changeLevel}
@@ -38,11 +38,11 @@ const Palette = ({ palette }) => {
         mode={mode}
         showSlider />
         {/* Navbar */}
-        <div className="palette-colors" >
+        <div className={colors} >
         {palette.colors[level].map((color) => {
           const {id} = color
           return <ColorBox
-            showLink={true}
+            showFullPalette={true}
             key={id}
             background={color}
             mode={color[mode]}
@@ -50,7 +50,7 @@ const Palette = ({ palette }) => {
         })}
         </div>
       {/* footer */}
-      <PaletteFooter palette={palette}/>
+      <PaletteFooter palette={palette} />
       
     </div>
   )

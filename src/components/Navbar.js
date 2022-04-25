@@ -10,7 +10,7 @@ import '../styles/navBar.css';
 
 
 const Navbar = ({ level, changeLevel, handleChange, setOpen, open, mode, showSlider }) => {
-   
+
 
 
 return (
