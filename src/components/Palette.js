@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import ColorBox from './ColorBox'
 import Navbar from './Navbar'
 import '../styles/palette.css'
+import PaletteFooter from './PaletteFooter'
 
 
 
@@ -12,7 +13,7 @@ const Palette = ({ palette }) => {
   const [mode, setMode] = useState('hex')
   const [open, setOpen] = useState(false) 
 
-// console.log(id);
+// console.log(palette);
 
 
 
@@ -25,8 +26,8 @@ const Palette = ({ palette }) => {
     setOpen(true)
   }
   
-  
   return (
+    
     <div className='palette'>
       <Navbar
         level={level}
@@ -34,12 +35,14 @@ const Palette = ({ palette }) => {
         handleChange={handleChange}
         setOpen={setOpen}
         open={open}
-        mode={mode}  />
+        mode={mode}
+        showSlider />
         {/* Navbar */}
         <div className="palette-colors" >
         {palette.colors[level].map((color) => {
           const {id} = color
           return <ColorBox
+            showLink={true}
             key={id}
             background={color}
             mode={color[mode]}
@@ -47,10 +50,7 @@ const Palette = ({ palette }) => {
         })}
         </div>
       {/* footer */}
-      <footer className='palette-footer'>
-        {palette.paletteName}
-        <span className='emoji'>{palette.emoji}</span>
-      </footer>
+      <PaletteFooter palette={palette}/>
       
     </div>
   )

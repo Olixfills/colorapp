@@ -6,7 +6,7 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
     root: {
-        backgroundColor: 'magenta',
+        backgroundColor: '#41495c',
         height: '100vh',
         display: 'flex',
         alignItems: 'flex-start',

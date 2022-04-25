@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         }
     },
     color: {
-        backgroundColor: '#dae1e4',
+        // backgroundColor: '#dae1e4',
         borderRadius: '5px',
         height:'100px',
         width: '100%',

@@ -9,7 +9,7 @@ import 'rc-slider/assets/index.css';
 import '../styles/navBar.css';
 
 
-const Navbar = ({ level, changeLevel, handleChange, setOpen, open, mode }) => {
+const Navbar = ({ level, changeLevel, handleChange, setOpen, open, mode, showSlider }) => {
    
 
 
@@ -18,16 +18,18 @@ return (
         <div className="logo">
             <Link to="/">My Color App</Link>
         </div>
+        {showSlider && (
         <div className="slider-container">
             <span>Level: {level}</span>
-        <div className="slider">
+            <div className="slider">
+        
         <Slider
         defaultValue={level}
         min={100} max={900}
         onAfterChange={changeLevel}
         step={100} />
         </div>
-        </div>
+        </div>)}
         <div className="select-container">
             <Dropd
                 value='HEX'

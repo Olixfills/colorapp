@@ -5,7 +5,7 @@ import '../styles/colorBox.css'
 
 
 
-const ColorBox = ({ background, mode, moreUrl}) => {
+const ColorBox = ({ background, mode, moreUrl, showLink}) => {
 const [copied, setCopied] = useState(false)
 const { hex,name } = background;
 
@@ -33,9 +33,10 @@ const { hex,name } = background;
         </div>
         <button className="copy-btn">Copy</button>
         </div>
+        {showLink && 
       <Link to={moreUrl} onClick={e => e.stopPropagation()}>
           <span className='more'>More</span>
-      </Link>
+      </Link>}
       </div>
     </CopyToClipboard>
   )

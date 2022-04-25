@@ -8,12 +8,12 @@ import SingleColorPalette from './pages/SingleColorPalette';
 
 
 function App() {
- 
+
   return (
     <Routes>
       <Route exact path='/' element={<Home palettes={SeedPalettes} />} />
       <Route path='/palette/:id' element={<Palettes palettes={SeedPalettes} />} />
-      <Route path='/palette/:paletteId/:colorId' element={<SingleColorPalette />} />
+      <Route path='/palette/:paletteId/:colorId' element={<SingleColorPalette  />} />
       <Route path='*' element={<h1>Error Page</h1>} />
 
     </Routes>
