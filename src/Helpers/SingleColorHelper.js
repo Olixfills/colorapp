@@ -1,4 +1,3 @@
-import React from "react"
 import { generatePalette } from '../Helpers/ChromaHelper'
 import SeedPalettes from '../SeedPalettes';
 
