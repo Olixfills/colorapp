@@ -36,7 +36,7 @@ const changeLevel = (level) => {
     return shades.slice(1);
   }
   const select = gatherShades(palette, colorId);
-  console.log(select);
+  // console.log(select);
 
 
   const colorBoxes = select.map(color => (
