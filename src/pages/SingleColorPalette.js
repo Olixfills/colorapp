@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { SingleColorHelper } from '../Helpers/SingleColorHelper';
 import ColorBox from '../components/ColorBox';
 import Navbar from '../components/Navbar';
@@ -61,7 +61,7 @@ const changeLevel = (level) => {
         showSlider={false}  />
       <div className="palette-colors">
         {colorBoxes}
-        <div className="go-back color-box"><a href="/" className='back-btn'>GO BACK</a></div>
+        <div className="go-back color-box"><Link to={`/palette/${paletteId}`} className='back-btn'>GO BACK</Link></div>
       </div>
       <PaletteFooter palette={palette}/>
     </div>
